@@ -15,20 +15,25 @@ const cpuNumber = oneToFiveRNG();
 
 sumResult = sumAndDefineOddEven(userNumber, cpuNumber);
 
-declareWinner(sumResult);
+message = declareWinner(sumResult, userChoice);
+
+element.innerHTML = message;
 
 
 
 /**
- * Generates a random number between 1 to five
- * //
- * //
- * //
- */
+ * Generates a random number between 1 to 5
+  */
 function oneToFiveRNG() {
     return Math.floor(Math.random() * 5) + 1;
 }
 
+/**
+ * Sum params and determine if it's Odd or Even
+ * @param {number} num1 - The first number
+ * @param {number} num2 - The second number
+ *
+*/
 function sumAndDefineOddEven(num1, num2) {
 
     let sum = num1 + num2;
@@ -38,14 +43,18 @@ function sumAndDefineOddEven(num1, num2) {
     } else {
         return "odd";
     }
-
 }
 
-function declareWinner(result) {
-    if (result == userChoice) {
-        message = `You win: your number was ${userNumber}, mine was ${cpuNumber}, their sum was ${userNumber + cpuNumber} and you choose ${userChoice}`
+/**
+ * make a comparison between the two params
+ * @param {string} opt1 - The first option
+ * @param {string} opt2 - The second option
+ *
+*/
+function declareWinner(opt1, opt2) {
+    if (opt1 == opt2) {
+        return `You win: your number was ${userNumber}, mine was ${cpuNumber}, their sum was ${userNumber + cpuNumber} and you choose ${userChoice}`
     } else {
-        message = `You lost (or you choose a wrong type, so you lost anyway): your number was ${userNumber}, mine was ${cpuNumber}, their sum was ${userNumber + cpuNumber} and you choose ${userChoice}`
+        return `You lost (or you choose a wrong type, so you lost anyway): your number was ${userNumber}, mine was ${cpuNumber}, their sum was ${userNumber + cpuNumber} and you choose ${userChoice}`
     }
-    element.innerHTML = message;
 }
