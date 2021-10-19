@@ -17,6 +17,11 @@ if (checkPalindrome(userString)) {
 
 element.innerHTML = message;
 
+
+/**
+ * Check if the string is a palindrome.
+ * @param {string} stringToCheck - The string to check.
+ */
 function checkPalindrome(stringToCheck) {
 
     stringToCheck = stringToCheck.replace(/\s+/g, '');
